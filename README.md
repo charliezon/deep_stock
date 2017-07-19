@@ -10,7 +10,7 @@ Raw data are colllected using TDX (http://www.tdx.com.cn/) client with a tool th
 
 ### Data for learning
 
-Raw data are converted to csv format for learning.
+Raw data are converted to csv format for learning. It can be downloaded from https://pan.baidu.com/s/1eRZ279g.
 
 ### Features
 
