@@ -8,7 +8,7 @@ from keras.layers.advanced_activations import LeakyReLU
 import matplotlib.pyplot as plt
 import h5py
 
-data = pd.read_csv("../../data/data_buy_follow_index_1/csv/ten_percent/thirty_days/data.csv", header=None)
+data = pd.read_csv("../../data/data_20170719_01/data.csv", header=None)
 dataset = data.values
 
 feature_len = 100
@@ -46,14 +46,14 @@ sgd = SGD(lr=0.01, decay=1e-6, momentum=0.9, nesterov=True)
 model.compile(loss='binary_crossentropy',
               optimizer=sgd,
               metrics=['accuracy'])
-# model = load_model('../../data/data_buy_follow_index_1/csv/ten_percent/thirty_days/model.h5')
+# model = load_model('./model.h5')
 history = model.fit(x_train, y_train,
           epochs=epochs,
           batch_size=batch_size,
           verbose=1,
           validation_split=0.1)
 
-model.save('../../data/data_buy_follow_index_1/csv/ten_percent/thirty_days/model.h5')
+model.save('./model.h5')
 
 plt.plot(history.history['acc'])
 plt.plot(history.history['val_acc'])
