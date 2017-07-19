@@ -10,7 +10,7 @@ Raw data are colllected using TDX (http://www.tdx.com.cn/) client with a tool th
 
 ### Data for learning
 
-Raw data are converted to csv format for learning. It can be downloaded from https://pan.baidu.com/s/1eRZ279g.
+Raw data are converted to csv format for learning. It can be downloaded from https://pan.baidu.com/s/1pLnxvab.
 
 ### Features
 
@@ -19,3 +19,11 @@ Basically, the features include turnover, increase rate, winner rate of recent t
 ## Stock trade strategy
 
 Suppose we set the same rate for stopping loss and taking profit, then when the success rate is larger than fifty percent, we can profit. Therefore, our goal is to find the models with as high success rate as possible in this condition.
+
+## Dependencies
+
+Todo.
+
+## Usage
+
+Todo.
