@@ -8,6 +8,8 @@ from keras.layers.advanced_activations import LeakyReLU
 import matplotlib.pyplot as plt
 import h5py
 
+# TODO 增加实验设置说明
+
 data = pd.read_csv("../../data/data_20170719_01/data.csv", header=None)
 dataset = data.values
 
