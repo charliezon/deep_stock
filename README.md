@@ -18,4 +18,4 @@ Basically, the features include turnover, increase rate, winner rate of recent t
 
 ## Stock trade strategy
 
-Suppose we set the same rate for stopping loss and taking profit, then when the success rate is larger than fifty percent, we can profit. Therefore, our goal is to find the models with the as high success rate as possible in this condition.
+Suppose we set the same rate for stopping loss and taking profit, then when the success rate is larger than fifty percent, we can profit. Therefore, our goal is to find the models with as high success rate as possible in this condition.
