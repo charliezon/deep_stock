@@ -8,21 +8,17 @@ from keras.layers.advanced_activations import LeakyReLU
 import matplotlib.pyplot as plt
 import h5py
 
-# TODO 增加实验设置说明
+# TODO add experiment description
 
 data = pd.read_csv("../../data/data_20170720_01/data.csv", header=None)
 dataset = data.values
 
 feature_len = 100
 train_len = int(len(dataset)*0.96)
-epochs = 5
-#epochs = 1000
-num_unit = 128
-#num_unit = 256
-batch_size = 128
-#batch_size = 256
-#num_layer = 6
-num_layer = 1
+epochs = 1000
+num_unit = 256
+batch_size = 256
+num_layer = 6
 dropout = 0.5
 
 x_train = dataset[0:train_len, 0:feature_len].astype(float)
