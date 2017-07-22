@@ -3,9 +3,18 @@ import xgboost as xgb
 # read in data
 dtrain = xgb.DMatrix('../../data/data_20170722_01/train_data.txt')
 dtest = xgb.DMatrix('../../data/data_20170722_01/test_data.txt')
-# specify parameters via map
-param = {'max_depth':2, 'eta':1, 'silent':1, 'objective':'binary:logistic' }
-num_round = 2
-bst = xgb.train(param, dtrain, num_round)
-# make prediction
+
+# specify parameters via map, definition are same as c++ version
+param = {'max_depth':22, 'eta':0.1, 'silent':0, 'objective':'binary:logistic','min_child_weight':3,'gamma':14 }
+
+# specify validations set to watch performance
+watchlist  = [(dtest,'eval'), (dtrain,'train')]
+num_round = 33
+bst = xgb.train(param, dtrain, num_round, watchlist)
+
+# this is prediction
 preds = bst.predict(dtest)
+labels = dtest.get_label()
+print ('error=%f' % ( sum(1 for i in range(len(preds)) if int(preds[i]>0.5)!=labels[i]) /float(len(preds))))
+
+print ('correct=%f' % ( sum(1 for i in range(len(preds)) if int(preds[i]>0.5)==labels[i]) /float(len(preds))))
