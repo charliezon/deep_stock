@@ -10,6 +10,8 @@ import h5py
 
 # TODO add experiment description
 
+# Too small dataset. Bad result.
+
 data = pd.read_csv("../../data/data_20170720_01/data.csv", header=None)
 dataset = data.values
 

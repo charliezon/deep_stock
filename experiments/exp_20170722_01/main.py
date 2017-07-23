@@ -1,5 +1,7 @@
 import xgboost as xgb
 
+# Accuracy on test set: 63%
+
 # read in data
 dtrain = xgb.DMatrix('../../data/data_20170722_01/train_data.txt')
 dtest = xgb.DMatrix('../../data/data_20170722_01/test_data.txt')

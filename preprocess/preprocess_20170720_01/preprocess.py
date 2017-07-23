@@ -3,8 +3,6 @@
 
 '''Convert raw data to data for learning'''
 
-# TODO 将preprocess也按日期排列
-
 __author__ = 'Chaoliang Zhong'
 
 from decimal import Decimal as D

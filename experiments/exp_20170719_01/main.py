@@ -10,6 +10,8 @@ import h5py
 
 # TODO 增加实验设置说明
 
+# Accuracy on test set: 64%
+
 data = pd.read_csv("../../data/data_20170719_01/data.csv", header=None)
 dataset = data.values
 
