@@ -53,14 +53,14 @@ sgd = SGD(lr=0.01, decay=1e-6, momentum=0.9, nesterov=True)
 model.compile(loss='binary_crossentropy',
               optimizer=sgd,
               metrics=['accuracy', precision])
-# model = load_model('./model.h5')
+# model.load_weights('./model_weights.h5')
 history = model.fit(x_train, y_train,
           epochs=epochs,
           batch_size=batch_size,
           verbose=1,
           validation_split=0.1)
 
-model.save('./model.h5')
+model.save_weights('./model_weights.h5')
 
 plt.plot(history.history['acc'])
 plt.plot(history.history['val_acc'])

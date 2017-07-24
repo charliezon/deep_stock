@@ -4,8 +4,6 @@ import json
 import matplotlib.pyplot as plt
 import numpy as np
 
-# TODO 增加实验设置说明
-
 # Accuracy on test set: 69%
 
 data = None
@@ -48,13 +46,13 @@ model.compile(loss='binary_crossentropy',
               optimizer='rmsprop',
               metrics=['accuracy'])
 
-# model = load_model('./model.h5')
+# model.load_weights('./model_weights.h5')
 
 history = model.fit(x_train, y_train,
           batch_size=64, epochs=50,
           validation_data=(x_val, y_val))
 
-model.save('./model.h5')
+model.save_weights('./model_weights.h5')
 
 plt.plot(history.history['acc'])
 plt.plot(history.history['val_acc'])
