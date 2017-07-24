@@ -5,7 +5,7 @@ import xgboost as xgb
 # positive_threshold = 0.50 => accuracy = 4396/6897 = 0.6373, precision = 1663/2651 = 0.62
 # positive_threshold = 0.67 => accuracy = 4106/6897 = 0.5953, precision = 492/599 = 0.82
 # positive_threshold = 0.80 => accuracy = 3889/6897 = 0.5638, precision = 176/184 = 0.95
-positive_threshold = 0.50
+positive_threshold = 0.67
 
 # read in data
 dtrain = xgb.DMatrix('../../data/data_20170722_01/train_data.txt')
