@@ -1,3 +1,6 @@
+import sys
+sys.path.append('../../')
+
 import pandas as pd
 import numpy as np
 from keras.models import Sequential
@@ -7,6 +10,7 @@ from keras.optimizers import SGD
 from keras.layers.advanced_activations import LeakyReLU
 import matplotlib.pyplot as plt
 import h5py
+from utils.metrics import precision
 
 # TODO add experiment description
 
@@ -45,7 +49,7 @@ model.add(Dense(1, activation='sigmoid'))
 sgd = SGD(lr=0.01, decay=1e-6, momentum=0.9, nesterov=True)
 model.compile(loss='binary_crossentropy',
               optimizer=sgd,
-              metrics=['accuracy'])
+              metrics=['accuracy', precision])
 # model.load_weights('./model_weights.h5')
 history = model.fit(x_train, y_train,
           epochs=epochs,
@@ -57,12 +61,14 @@ model.save_weights('./model_weights.h5')
 
 plt.plot(history.history['acc'])
 plt.plot(history.history['val_acc'])
+plt.plot(history.history['precision'])
+plt.plot(history.history['val_precision'])
 plt.plot(history.history['loss'])
 plt.plot(history.history['val_loss'])
-plt.title('model accuracy and loss')
-plt.ylabel('accuracy or loss')
+plt.title('model accuracy, precision and loss')
+plt.ylabel('accuracy, precision or loss')
 plt.xlabel('epoch')
-plt.legend(['train_acc', 'val_acc', 'train_loss', 'val_loss'], loc='upper left')
+plt.legend(['train_acc', 'val_acc', 'train_precision', 'val_precision', 'train_loss', 'val_loss'], loc='upper left')
 plt.show()
 
 score = model.evaluate(x_test, y_test, batch_size=batch_size, verbose=1)
