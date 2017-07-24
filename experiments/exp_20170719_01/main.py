@@ -1,3 +1,6 @@
+import sys
+sys.path.append('../../')
+
 import pandas as pd
 import numpy as np
 from keras.models import Sequential
@@ -8,7 +11,7 @@ from keras.layers.advanced_activations import LeakyReLU
 import matplotlib.pyplot as plt
 import h5py
 
-# TODO 增加实验设置说明
+from utils.metrics import precision
 
 # Accuracy on test set: 64%
 
@@ -49,7 +52,7 @@ model.add(Dense(1, activation='sigmoid'))
 sgd = SGD(lr=0.01, decay=1e-6, momentum=0.9, nesterov=True)
 model.compile(loss='binary_crossentropy',
               optimizer=sgd,
-              metrics=['accuracy'])
+              metrics=['accuracy', precision])
 # model = load_model('./model.h5')
 history = model.fit(x_train, y_train,
           epochs=epochs,
