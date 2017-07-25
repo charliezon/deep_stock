@@ -13,7 +13,7 @@ import h5py
 
 from utils.metrics import precision
 
-# Accuracy on test set: 64%
+# Accuracy, Precision ??
 
 data = pd.read_csv("../../data/data_20170719_01/data.csv", header=None)
 dataset = data.values
@@ -21,12 +21,8 @@ dataset = data.values
 feature_len = 100
 train_len = int(len(dataset)*0.96)
 epochs =  1000
-#epochs = 1000
 num_unit = 128
-#num_unit = 256
 batch_size = 128
-#batch_size = 256
-#num_layer = 6
 num_layer = 5
 dropout = 0.5
 

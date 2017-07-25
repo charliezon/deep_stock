@@ -9,8 +9,6 @@ import numpy as np
 import h5py
 from utils.metrics import precision
 
-# Accuracy on test set: 69%
-
 epochs =  50
 batch_size=64
 

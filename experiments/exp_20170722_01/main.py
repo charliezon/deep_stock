@@ -1,13 +1,5 @@
 import xgboost as xgb
 
-# train_data / all_data = 0.96, without cross validation
-# positive_threshold = 0.50 => accuracy = 4396/6897 = 0.6373, precision = 1663/2651 = 0.62
-# positive_threshold = 0.67 => accuracy = 4106/6897 = 0.5953, precision = 492/599 = 0.82
-# positive_threshold = 0.80 => accuracy = 3889/6897 = 0.5638, precision = 176/184 = 0.95
-# positive_threshold = 0.90 => accuracy = 3764/6897 = 0.5457, precision = 44/45 = 0.97
-# positive_threshold = 0.95 => accuracy = 3724/6897 = 0.5399, precision = 3/3 = 1.00
-
-
 # read in data
 dtrain = xgb.DMatrix('../../data/data_20170722_01/train_data.txt')
 dtest = xgb.DMatrix('../../data/data_20170722_01/test_data.txt')
