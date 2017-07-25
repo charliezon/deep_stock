@@ -16,6 +16,7 @@ def convert(path):
             data_item = []
             data_item.append(row[len(row)-1]);
             for i in range(len(row)-1):
+                #if i <= 92 or i >= 98:
                 data_item.append(str(i+1) + ':' + row[i])
             data.append(' '.join(data_item))
     return data
