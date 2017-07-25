@@ -22,7 +22,8 @@ Suppose we set the same rate for stopping loss and taking profit, then when the 
 
 ## Dependencies
 
-Todo.
+* Keras 2.0.0
+* XGBoost 0.6
 
 ## Usage
 
