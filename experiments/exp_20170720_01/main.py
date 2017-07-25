@@ -12,8 +12,6 @@ import matplotlib.pyplot as plt
 import h5py
 from utils.metrics import precision
 
-# TODO add experiment description
-
 # Too small dataset. Bad result.
 
 data = pd.read_csv("../../data/data_20170720_01/data.csv", header=None)
@@ -59,6 +57,9 @@ history = model.fit(x_train, y_train,
 
 model.save_weights('./model_weights.h5')
 
+score = model.evaluate(x_test, y_test, batch_size=batch_size, verbose=1)
+print(score)
+
 plt.plot(history.history['acc'])
 plt.plot(history.history['val_acc'])
 plt.plot(history.history['precision'])
@@ -70,6 +71,3 @@ plt.ylabel('accuracy, precision or loss')
 plt.xlabel('epoch')
 plt.legend(['train_acc', 'val_acc', 'train_precision', 'val_precision', 'train_loss', 'val_loss'], loc='upper left')
 plt.show()
-
-score = model.evaluate(x_test, y_test, batch_size=batch_size, verbose=1)
-print(score)

@@ -24,11 +24,12 @@ def write_file(path, data):
     with open(path, 'w') as f:
         f.write(data)
 
-data = convert(root_dir + '/data/data_buy_follow_index_1/csv/ten_percent/thirty_days/data.csv')
+data = convert(root_dir + '/data/data_20170719_01/data.csv')
 
-train_len = int(len(data)*0.96)
+data_len = len(data)
+train_len = int(data_len*0.96)
 train_data = data[0:train_len]
 test_data = data[train_len:]
 
-write_file(root_dir + '/data/data_buy_follow_index_1/csv/ten_percent/thirty_days/train_data.txt', '\n'.join(train_data))
-write_file(root_dir + '/data/data_buy_follow_index_1/csv/ten_percent/thirty_days/test_data.txt', '\n'.join(test_data))
+write_file(root_dir + '/data/data_20170722_01/train_data.txt', '\n'.join(train_data))
+write_file(root_dir + '/data/data_20170722_01/test_data.txt', '\n'.join(test_data))
