@@ -22,9 +22,9 @@ Suppose we set the same rate for stopping loss and taking profit, then when the 
 
 ## Dependencies
 
-* Keras 2.0.0
+* Keras 2.0.6
 * XGBoost 0.6
 
 ## Usage
 
-Todo.
+Clone this repository, download and extract data to corresponding folders, and execute main.py in corresponding experiment folders.
