@@ -11,6 +11,7 @@ import os
 import csv
 import random
 import json
+from operator import itemgetter, attrgetter
 
 # the rate for stopping loss
 stop_loss_rate = 0.10
@@ -55,7 +56,6 @@ def round_float(g, pos=2):
 
 def process_file(path):
     data = []
-    label = []
     content = []
 
     # 股票属于沪市、深市或创业板
@@ -107,6 +107,7 @@ def process_file(path):
                     success = 1
                     break
             if success == 0 or success == 1:
+                date = content[i][0]
                 data_item = []
                 for k in range(old_days):
                     item = []
@@ -154,30 +155,33 @@ def process_file(path):
 
                     data_item.append(item)
                 if len(data_item) == old_days:
-                    data.append(data_item)
-                    label.append(success)
-    return data, label
+                    data.append([date, data_item, success])
+    return data
 
 def process_folder(path):
     path = os.path.abspath(path)
     data = []
-    label = []
     for x in os.listdir(path):
         new_path = os.path.join(path, x)
         if os.path.isdir(new_path):
-            x, y = process_folder(new_path)
-            data[0:0] = x
-            label[0:0] = y
+            sub_data = process_folder(new_path)
+            data[0:0] = sub_data
         elif os.path.isfile(new_path) and os.path.splitext(x)[1]=='.txt':
             print(new_path)
-            x, y = process_file(new_path)
-            data[0:0] = x
-            label[0:0] = y
-    return data, label
+            sub_data = process_file(new_path)
+            data[0:0] = sub_data
+    return data
 
 def write_data(path, data):
     with open(path, 'w', newline='') as f:
         f.write(json.dumps(data))
 
-x, y = process_folder(root_dir+'/data/data_buy_follow_index_1/raw')
-write_data(root_dir+'/data/data_buy_follow_index_1/json/data.json', [x, y])
+data = process_folder(root_dir+'/data/data_buy_follow_index_1/raw')
+data = sorted(data, key=itemgetter(0))
+x = []
+y = []
+for d in data:
+    x.append(d[1])
+    y.append(d[2])
+
+write_data(root_dir+'/data/data_buy_follow_index_1/json/data_sorted.json', [x, y])
