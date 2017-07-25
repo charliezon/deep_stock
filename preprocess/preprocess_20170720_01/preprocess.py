@@ -174,7 +174,6 @@ for k in range(len(data)):
 
 data = new_data
 
-random.shuffle(data)
 write_csv(root_dir+'/data/data_buy_follow_index_1/csv/ten_percent/thirty_days/data_single.csv', data)
 
 title = []
