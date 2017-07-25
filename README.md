@@ -6,11 +6,11 @@ This project aims to build effective stock selection models based on machine lea
 
 ### Raw data
 
-Raw data are colllected using TDX (http://www.tdx.com.cn/) client with a tool that can press buttons of keyboard and mouse automatically according to a prerecorded program.
+Raw data are colllected using TDX (http://www.tdx.com.cn/) client with a tool that can press buttons of keyboard and mouse automatically according to a recorded script.
 
 ### Data for learning
 
-Raw data are converted to csv format for learning. It can be downloaded from https://pan.baidu.com/s/1pLnxvab.
+Raw data are converted to csv format for learning. It can be downloaded at https://pan.baidu.com/s/1pLnxvab.
 
 ### Features
 
