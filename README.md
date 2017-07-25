@@ -1,6 +1,6 @@
 # Deep Stock
 
-This project aims to build effective stock selection models based on deep learning tools such as Keras, Tensorflow, etc., for Chinese stock market participants.
+This project aims to build effective stock selection models based on machine learning tools such as Keras, Tensorflow, XGBoost, etc., for Chinese stock market participants.
 
 ## Data
 
